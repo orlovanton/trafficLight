@@ -12,6 +12,9 @@ import java.util.List;
  */
 public class FileReader {
 
+    /*
+    Тут указать путь до файла на локальной машине
+     */
     public static final String FILE_NAME = "/Users/antonorlov/Documents/ann/java/trafficLight/color.txt";
 
     /**
