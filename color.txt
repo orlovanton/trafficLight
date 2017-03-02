@@ -1,1 +1,2 @@
-color:green
+color:yellow
+value:test_value

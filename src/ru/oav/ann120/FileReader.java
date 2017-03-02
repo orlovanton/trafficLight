@@ -26,11 +26,13 @@ public class FileReader {
         try {
             List<String> strings = Files.readAllLines(Paths.get(FILE_NAME));
             TrafficLight trafficLight = new TrafficLight();
-            if (strings != null && strings.size() > 0) {
+            if (strings != null && strings.size() > 1) {
                 String color = strings.get(0);
                 trafficLight.setColor(color);
+                String value = strings.get(1);
+                trafficLight.setValue(value);
             } else {
-                throw new Exception("Файл пустой");
+                throw new Exception("Файл не соответствует требованиям");
             }
             return trafficLight;
         } catch (IOException e) {
@@ -46,6 +48,8 @@ public class FileReader {
     public static void saveTrafficLight(TrafficLight trafficLight) throws Exception {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(FILE_NAME))) {
             writer.write("color:" + trafficLight.getColor());
+            writer.write("\n");
+            writer.write("value:" + trafficLight.getValue());
         } catch (IOException ex) {
             throw new Exception("Не удалось записать файл", ex);
         }

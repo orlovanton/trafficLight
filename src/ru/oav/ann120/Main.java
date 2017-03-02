@@ -15,12 +15,18 @@ public class Main {
                 TrafficLight trafficLight = FileReader.getTrafficLight();
 
                 System.out.println("\n Цвет светофора " + trafficLight.getColor() +
+                        ", value: " + trafficLight.getValue() +
                         "\n Введите новый цвет... \n");
                 Scanner scanner = new Scanner(System.in);
                 //читаем введенный текст
                 String line = scanner.nextLine();
                 // сеттим  в объект
                 trafficLight.setColor(line);
+                System.out.println("Введите value: ");
+
+                String value = scanner.nextLine();
+
+                trafficLight.setValue(value);
                 //записываем в файл
                 FileReader.saveTrafficLight(trafficLight);
             } catch (Exception ex) {
